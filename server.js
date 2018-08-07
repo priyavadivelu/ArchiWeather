@@ -17,7 +17,7 @@ var options = {
 session = require('express-session');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use('/', express.static(path.join(__dirname, './')));
+app.use('/', express.static(path.join(__dirname, './webclient')));
 
 app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
