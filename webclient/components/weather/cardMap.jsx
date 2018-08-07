@@ -1,12 +1,12 @@
  import React from 'react';
 import {Grid,Segment} from 'semantic-ui-react';
-var geolib = require('geolib');
-var moment = require('moment');
+// var geolib = require('geolib');
+// var moment = require('moment');
 import Cards from './weatherCard.jsx';
-import './cardMap.css'; 
+import './cardMap.css';
 
 const divStyle = {
- width: '90%', 
+ width: '90%',
  margin: 'auto',
  marginBottom:'20px',
 };
@@ -15,10 +15,10 @@ class DisplayComponent extends React.Component {
 
     constructor(props) {
         super(props);
-        
+
       }
 
-      
+
 
       render()
       {
@@ -49,12 +49,12 @@ class DisplayComponent extends React.Component {
 
 
           jsarray= Object.keys(jsobj).map((dat,i)=>{
-            
-            var a = jsobj[dat].map(objs=>{
-               
-                  
 
-              
+            var a = jsobj[dat].map(objs=>{
+
+
+
+
               return(
 
                       <Cards className="card"
@@ -69,7 +69,7 @@ class DisplayComponent extends React.Component {
                       pressure = {objs.main.pressure}
                       DailyAveragePressure={objs.main.pressure/8}
                       />
-                  
+
               )
             })
             console.log(a);
@@ -77,13 +77,13 @@ class DisplayComponent extends React.Component {
               <Segment id='cardBg' style = {divStyle}>
 
               <h3 style = {{color: 'PALETURQUOISE'}}>{(i == 0) ? 'Today' : (i == 1) ? 'Tomorrow' : dat} </h3>
-                
-                           
+
+
 
               <Grid centered>
                 {a}
               </Grid>
-            
+
             </Segment>)
           })
           console.log(jsobj);

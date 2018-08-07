@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Weather from './weather/';
 import weatherCalls from '../interactors/services/weatherCalls.js';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+// import { Collapse, Button, CardBody, Card } from 'reactstrap';
 var NavBar = require('./navbar/NavBar.jsx');
 import { ToastContainer, toast, Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,7 @@ class MainComponent extends React.Component {
             lat: 0,
             lon: 0
         };
-       
+
       }
 
 
@@ -42,7 +42,7 @@ class MainComponent extends React.Component {
                 this.setState({jsonarray: data});
               }.bind(this)
               var errorFunction = function(err) {
-                
+
                 toast.error("Please enter valid city name !", {
                   position: toast.POSITION.TOP_CENTER,
                   autoClose: 2000
@@ -87,14 +87,14 @@ class MainComponent extends React.Component {
                 <br/>
                 <Weather.searchTab getWeatherFromQueryProp={this.getWeatherFromQuery.bind(this)} getCurrentCoordinates={this.getCurrentCoordinates.bind(this)}/>
 
-                  
-                
-                <h1 
+
+
+                <h1
                 style = {{marginLeft: '5%', color: 'lime',fontSize:'20px'}}>
                 {this.state.jsonarray['city'] ?
-                 this.state.jsonarray['city']['name']: ''} 
-                 </h1>              
-                 
+                 this.state.jsonarray['city']['name']: ''}
+                 </h1>
+
                 <Weather.cardMap weatherArrProp={this.state.jsonarray} lat={this.state.lat} lon={this.state.lon}/>
             </div>
 
